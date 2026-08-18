@@ -8,8 +8,9 @@ parse the findings and a ready-to-import **Wazuh/OpenSearch vulnerability dashbo
 > Sanitized, adaptable reference. Placeholders (`<SCANNER_HOST>`, `<GRAYLOG_HOST>`,
 > `<WAZUH_HOST>`, `<GMP_USER>`, RFC5737 example networks) stand in for real values. Carries
 > no real environment data. Companion to the broader
-> [soc-pipeline](https://github.com/secdoc/soc-pipeline-public) build and its sibling
-> [socfortress-waf-siem](https://github.com/secdoc/socfortress-waf-siem).
+> [soc-pipeline](https://github.com/secdoc/soc-pipeline-public) build and its siblings
+> [socfortress-waf-siem](https://github.com/secdoc/socfortress-waf-siem) and
+> [technitium-wazuh-graylog](https://github.com/secdoc/technitium-wazuh-graylog).
 
 ## Why this exists
 
