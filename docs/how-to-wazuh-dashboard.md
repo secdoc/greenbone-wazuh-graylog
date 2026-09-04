@@ -128,26 +128,8 @@ or after an index rotation, reset the delivered-state file and re-append the cur
 findings (a change-controlled live action: back up first, verify read-back). See the
 action log entry for the approved procedure.
 
-## Automated feed (cron)
+## Scheduling
 
-The data feed is automated so the dashboard stays current without a manual pull.
-
-- **Wrapper:** `scripts/greenbone-pull.sh` (source of truth in this repo;
-  installed to `/opt/soc/scripts/` where the Hermes scheduler runs it). It opens a
-  read-only SSH socket-forward to gvmd, runs `run_pipeline.py`, and tears the forward
-  down via a trap. Dry-run: `GB_DRYRUN=1 /opt/soc/scripts/greenbone-pull.sh`.
-- **Schedule:** Hermes cron job `986f789422a3` ("Greenbone weekly vuln pull ->
-  Wazuh/Graylog"), `0 7 * * 6` (Sat 07:00 UTC, just after the weekly scan window
-  which ends ~06:00 UTC). `no_agent` script job (no LLM), `deliver=local`.
-- **Runs on:** the Hermes agent host (owns the SSH keys, `.env` creds, python-gvm
-  venv, and pipeline code). The scanner and Wazuh manager only receive.
-- **Idempotent:** dedupe on `report_id+nvt_oid+host` means a run delivers 0 unless
-  Greenbone produced a genuinely new report; no duplicate alerts.
-- **Status:** one-line JSON per run appended to `/var/log/greenbone-pull.log`;
-  job history via `cronjob list` (last_status/last_run_at). Local-only, so no message
-  is pushed anywhere; check the log or job status on demand.
-
-Note: the dashboard VIEW is always live (re-aggregates the index on open/refresh);
-this cron only keeps the underlying DATA fresh.
-
-*Source of truth: `secdoc/soc-pipeline`. Last reviewed: 2026-08-17 (grid-layout pitfall added).*
+Run `scripts/greenbone-pull.sh` with the scheduler of your choice. Keep the
+environment file, SSH key paths, scheduler identifiers, and deployment hostnames
+outside the public repository. Verify a dry run before enabling recurring delivery.

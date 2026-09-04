@@ -59,4 +59,4 @@ GVM scopes every task/target/report to its **owner**. A new user (even with the 
 - GMP `get_version` → 22.7, status 200. `authenticate` → 200 OK.
 - **State:** 0 tasks / 0 reports — no scans have been run yet, so a scan must be created to produce findings for the pipeline.
 
-*Source of truth: `secdoc/soc-pipeline`. Last reviewed: 2026-08-16.*
+*Source of truth: `private implementation repository`. Last reviewed: 2026-08-16.*

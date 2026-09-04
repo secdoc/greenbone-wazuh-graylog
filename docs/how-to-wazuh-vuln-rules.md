@@ -62,4 +62,4 @@ Only `systemctl restart wazuh-manager` after `analysisd -t` reports 0 errors.
 Confirm non-disruption: a greenbone finding must decode as `json` (never `unifi-*`),
 and existing sources must still fire.
 
-*Source of truth: `secdoc/soc-pipeline`. Last reviewed: 2026-08-16.*
+*Source of truth: `private implementation repository`. Last reviewed: 2026-08-16.*

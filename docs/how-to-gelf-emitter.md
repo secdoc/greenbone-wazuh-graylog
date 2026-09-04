@@ -51,4 +51,4 @@ python3 collector/gelf_emitter.py --in findings.jsonl \
 python3 collector/gelf_emitter.py --in findings.jsonl --graylog-host x --dry-run
 ```
 
-*Source of truth: `secdoc/soc-pipeline`. Last reviewed: 2026-08-16.*
+*Source of truth: `private implementation repository`. Last reviewed: 2026-08-16.*
